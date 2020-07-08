@@ -24,6 +24,8 @@ public class main {
         frm.setVisible(true);
     }
 
+    public static List<DefaultProceso> memoria;
+    
     public static List<DefaultProceso> getMemoria() {
         /**
          * ******************* Creacion de Objetos Procesos ************************
@@ -68,11 +70,11 @@ public class main {
             case 3:
                 return DefaultProceso.Prioridad.MEDIA;
         }
-        System.out.println("XXXX");
+        
         return DefaultProceso.Prioridad.BAJA;
     }
     
-    private static List<DefaultProceso> generarProcesosAleatorios(int cantidad) {
+    public static List<DefaultProceso> generarProcesosAleatorios(int cantidad) {
         List<DefaultProceso> memoria = new ArrayList<>();
         for (int i = 0; i < cantidad; i++) {
             
