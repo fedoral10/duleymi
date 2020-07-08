@@ -29,9 +29,9 @@ public class MultiplesColas implements IAlgoritmo {
         while (iColas.hasNext()) {
             List<DefaultProceso> cola = iColas.next();
 
-            FIFO fifo = new FIFO();
+            PrioridadAlMasCorto p = new PrioridadAlMasCorto();
             builder.append("Ejecución de cola " + (contador + 1) + "\n");
-            builder.append(fifo.ejecutarAlgoritmo(cola));
+            builder.append(p.ejecutarAlgoritmo(cola));
             contador++;
         }
 
