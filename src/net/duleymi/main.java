@@ -31,17 +31,17 @@ public class main {
         DefaultProceso p1 = new DefaultProceso();
         p1.setNombre("Proceso 1");
         p1.setPrioridad(DefaultProceso.Prioridad.BAJA);
-        p1.setTiempoEjecucion(30);
+        p1.setTiempoEjecucion(90);
         
         DefaultProceso p2 = new DefaultProceso();
         p2.setNombre("Proceso 2");
         p2.setPrioridad(DefaultProceso.Prioridad.ALTA);
-        p2.setTiempoEjecucion(20);
+        p2.setTiempoEjecucion(100);
         
         DefaultProceso p3 = new DefaultProceso();
         p3.setNombre("Proceso 3");
         p3.setPrioridad(DefaultProceso.Prioridad.MEDIA);
-        p3.setTiempoEjecucion(60);
+        p3.setTiempoEjecucion(10);
         
         memoria.add(p1);
         memoria.add(p2);
