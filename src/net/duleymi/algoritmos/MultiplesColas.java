@@ -30,7 +30,7 @@ public class MultiplesColas implements IAlgoritmo {
             List<DefaultProceso> cola = iColas.next();
 
             FIFO fifo = new FIFO();
-            builder.append("Ejecucion de cola " + (contador + 1) + "\n");
+            builder.append("Ejecución de cola " + (contador + 1) + "\n");
             builder.append(fifo.ejecutarAlgoritmo(cola));
             contador++;
         }

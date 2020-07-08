@@ -5,7 +5,9 @@
  */
 package net.duleymi.algoritmos;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import net.duleymi.procesos.DefaultProceso;
 
 /**
@@ -28,12 +30,17 @@ public class PrioridadAlMasCorto implements IAlgoritmo {
 
     private List<DefaultProceso> ordenar(List<DefaultProceso> memoria) {
         
-        memoria.sort( (x1,x2) -> {
+        List<DefaultProceso> lista = 
+                memoria.stream().sorted((x1,x2) -> {
             return x1.getTiempoEjecucion() < x2.getTiempoEjecucion() ? -1 :1;
-        } );
+        }).collect(Collectors.toList());
+        
+        /*memoria.sort( (x1,x2) -> {
+            return x1.getTiempoEjecucion() < x2.getTiempoEjecucion() ? -1 :1;
+        } );*/
                 
         
-        return memoria;
+        return lista;
     }
 
 }
