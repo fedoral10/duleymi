@@ -14,5 +14,5 @@ import net.duleymi.procesos.DefaultProceso;
  */
 public interface IAlgoritmo {
    
-    public void ejecutarAlgoritmo(List<DefaultProceso> memoria);
+    public String ejecutarAlgoritmo(List<DefaultProceso> memoria);
 }

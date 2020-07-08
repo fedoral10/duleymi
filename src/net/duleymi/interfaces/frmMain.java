@@ -8,6 +8,7 @@ package net.duleymi.interfaces;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import net.duleymi.algoritmos.FIFO;
+import net.duleymi.algoritmos.MultiplesColas;
 import net.duleymi.algoritmos.PrioridadAlMasCorto;
 import net.duleymi.main;
 import net.duleymi.procesos.DefaultProceso;
@@ -44,6 +45,7 @@ public class frmMain extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        mnuMultiplesColas = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuGenerarProcesos = new javax.swing.JMenuItem();
 
@@ -66,7 +68,7 @@ public class frmMain extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,7 +91,7 @@ public class frmMain extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -110,7 +112,7 @@ public class frmMain extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("PrioridadAlMasCorto");
+        jMenuItem2.setText("Prioridad al mas Corto");
         jMenuItem2.setName("mnuPAMC"); // NOI18N
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +120,14 @@ public class frmMain extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        mnuMultiplesColas.setText("Multiples Colas");
+        mnuMultiplesColas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuMultiplesColasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuMultiplesColas);
 
         jMenuBar1.add(jMenu1);
 
@@ -140,14 +150,14 @@ public class frmMain extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(395, Short.MAX_VALUE)
+                .addContainerGap(459, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(393, Short.MAX_VALUE)))
+                    .addContainerGap(451, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,13 +178,14 @@ public class frmMain extends javax.swing.JFrame {
     private void mnuFifoClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFifoClick
         // TODO add your handling code here:
         FIFO fifo = new FIFO();
-        fifo.ejecutarAlgoritmo(main.getMemoria());
+        fifo.ejecutarAlgoritmo(main.memoria);
+        txtEjecucion.setText(fifo.ejecutarAlgoritmo(main.memoria));
     }//GEN-LAST:event_mnuFifoClick
 
     private void mnuPAMClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuPAMClick
         // TODO add your handling code here:
         PrioridadAlMasCorto pamc = new PrioridadAlMasCorto();
-        pamc.ejecutarAlgoritmo(main.getMemoria());
+        txtEjecucion.setText(pamc.ejecutarAlgoritmo(main.memoria));
     }//GEN-LAST:event_mnuPAMClick
 
     private void mnuGenerarProcesosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGenerarProcesosActionPerformed
@@ -190,6 +201,12 @@ public class frmMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         setMemoria(10);
     }//GEN-LAST:event_formWindowOpened
+
+    private void mnuMultiplesColasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMultiplesColasActionPerformed
+        // TODO add your handling code here:
+        MultiplesColas m = new MultiplesColas();
+        txtEjecucion.setText(m.ejecutarAlgoritmo(main.memoria));
+    }//GEN-LAST:event_mnuMultiplesColasActionPerformed
 
     private void setMemoria(int cantidad) {
         main.memoria = main.generarProcesosAleatorios(cantidad);
@@ -250,6 +267,7 @@ public class frmMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenuItem mnuGenerarProcesos;
+    private javax.swing.JMenuItem mnuMultiplesColas;
     private javax.swing.JTextArea txtEjecucion;
     private javax.swing.JTextArea txtMemoria;
     // End of variables declaration//GEN-END:variables

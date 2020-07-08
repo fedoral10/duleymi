@@ -16,7 +16,10 @@ import net.duleymi.procesos.DefaultProceso;
 public class FIFO implements IAlgoritmo {
     
     @Override
-    public void ejecutarAlgoritmo(List<DefaultProceso> memoria) {
+    public String ejecutarAlgoritmo(List<DefaultProceso> memoria) {
+        
+        StringBuilder builder = new StringBuilder();
+        
         if(memoria !=null && !memoria.isEmpty()){
             /*En este algoritmo el primero proceso en entrar es el primero en ejecutarse es una cola, por ende se ejecutan recorriendo el List*/
             
@@ -25,10 +28,11 @@ public class FIFO implements IAlgoritmo {
                 DefaultProceso proceso = i.next();
                 
                 System.out.println("Se ejecuto el proceso-> "+ proceso.toString());
-                
+                builder.append(proceso.toString()+"\n");
             }
             
         }
+        return builder.toString();
     }
     
 }

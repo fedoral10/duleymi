@@ -15,12 +15,15 @@ import net.duleymi.procesos.DefaultProceso;
 public class PrioridadAlMasCorto implements IAlgoritmo {
 
     @Override
-    public void ejecutarAlgoritmo(List<DefaultProceso> memoria) {
+    public String ejecutarAlgoritmo(List<DefaultProceso> memoria) {
+        StringBuilder builder = new StringBuilder();
         List<DefaultProceso> memoriaOrdenada = ordenar(memoria);
         
         FIFO fifo = new FIFO();
         
-        fifo.ejecutarAlgoritmo(memoriaOrdenada);
+        builder.append(fifo.ejecutarAlgoritmo(memoriaOrdenada));
+        
+        return builder.toString();
     }
 
     private List<DefaultProceso> ordenar(List<DefaultProceso> memoria) {
